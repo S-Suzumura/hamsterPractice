@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b4ec7d51fe43a6940a15043a77f0151e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - item: {fileID: 6324353379255514729, guid: 42656f9545962ab4cb68373be25eee71, type: 3}
+  - coin: {fileID: 255565695834763279, guid: 74693e853fb5e634aa4fa7b6deefacd3, type: 3}
+  - ham: {fileID: 6324353379255514729, guid: 42656f9545962ab4cb68373be25eee71, type: 3}
+  - obj: {fileID: 6324353379255514729, guid: 42656f9545962ab4cb68373be25eee71, type: 3}
+  - FeedMachine: {fileID: 8724651055394088705, guid: b9f323006a45b9441b6c6afdbb452ead,
+      type: 3}
+  - WaterPot: {fileID: 1842778461641238721, guid: 8e2750f018d238742846c6f4ccebac90,
+      type: 3}
+  - Wheel: {fileID: 552455128432020364, guid: 45e9c536f232e0b428bdff5649235b07, type: 3}
+  - House: {fileID: 32822662554758429, guid: 75ffe312a7f76a748a74cb80d858fb45, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

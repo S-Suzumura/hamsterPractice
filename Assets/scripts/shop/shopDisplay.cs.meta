@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 83bf43e5402992444ac203654e325896
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ableButton: {fileID: 21300000, guid: e51c7c3b39e93a94b877deb4e1a4a40c, type: 3}
+  - disableButton: {fileID: 21300000, guid: 1f041d837efab7446ac949123d28e96f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
