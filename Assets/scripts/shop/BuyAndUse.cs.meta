@@ -14,6 +14,7 @@ MonoImporter:
       type: 3}
   - Wheel: {fileID: 552455128432020364, guid: 45e9c536f232e0b428bdff5649235b07, type: 3}
   - House: {fileID: 32822662554758429, guid: 75ffe312a7f76a748a74cb80d858fb45, type: 3}
+  - Drone: {fileID: 4695223362731359583, guid: c5695516cfb53ff48a535ca0f848837d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

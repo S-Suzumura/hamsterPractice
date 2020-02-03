@@ -23,7 +23,7 @@ public class hamsterAdd : MonoBehaviour
         
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "ゴールデンハムスター\n寿命が長く、ストレスにも強いです。\nただし餌の消費が激しく、価値も高くありません。";
+        X.text = "ゴールデンハムスター\n体の大きなハムスターです。\nストレスに強いですが、餌の消費が多め。";
 
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
@@ -38,7 +38,7 @@ public class hamsterAdd : MonoBehaviour
         
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "ジャンガリアンハムスター\nこれといった特徴のない普通のハムスターです。";
+        X.text = "ジャンガリアンハムスター\nこれといった特徴のないハムスターです。";
 
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
@@ -53,7 +53,7 @@ public class hamsterAdd : MonoBehaviour
         
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "ロボロフスキーハムスター\n餌の消費が少なく、価値も高いです。\nただし、ストレスに非常に弱いです。";
+        X.text = "ロボロフスキーハムスター\nやや価値の高いハムスターです。\nただし、ストレスに非常に弱いです。";
 
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();

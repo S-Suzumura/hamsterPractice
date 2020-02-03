@@ -13,6 +13,9 @@ public GameObject anger;
 public GameObject feedObject;
 public GameObject vegetableObject;
 public GameObject sunflowerSeedObject;
+public GameObject Cat;
+public GameObject Crow;
+public GameObject Drone;
 
     public static int hamsterTotal = 0;//一度でも出現したハムスターの累計
     public static int[,] hamsterAmount  = new int[,] {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};//各ハムスターの数[フィールド番号,ハムスターの種類]
@@ -48,6 +51,8 @@ public GameObject sunflowerSeedObject;
     public static int[] waterPot = new int[] {0,0,0,0,0};
     public static int[] house = new int[] {0,0,0,0,0};
     public static int[] wheel = new int[] {0,0,0,0,0};
+    public static int targetField = 0;
+    public static bool enemyStay = false;
 
     //ここからハムスターに割り当てるステータス
     //0 ゴールデン　1 ジャンガリアン　2 ロボロフスキー
@@ -62,6 +67,8 @@ public GameObject sunflowerSeedObject;
 
     int breedingTime  = 0;
     int stressPerTime = 0;
+    int enemyTime = 0;
+    int encounter = 11;
 
     // Start is called before the first frame update
     void Start()
@@ -267,6 +274,54 @@ public GameObject sunflowerSeedObject;
             }
 
 
+            //天敵出現
+            if(enemyTime>=10){//10秒に1回判定
+                int hamsterAll = 0;
+                for(int X=0;X<=4;X++){
+                    hamsterAmountTotal[X] = hamsterAmount[X,0]+hamsterAmount[X,1]+hamsterAmount[X,2];
+                    hamsterAll += hamsterAmountTotal[X];
+                }
+                int encounterCheck = Random.Range(1,encounter);
+                if(encounter <= 1 && enemyStay == false && hamsterAll >=20){//encounterが1の場合天敵出現
+                    int appear = Random.Range(0,3);
+                    targetField = Random.Range(0,5);
+                    int fieldObject = feedMachine[targetField]+waterPot[targetField]+wheel[targetField]+house[targetField];
+                    hamsterAmountTotal[targetField] = hamsterAmount[targetField,0]+hamsterAmount[targetField,1]+hamsterAmount[targetField,2];
+                    
+                    while((appear == 0 && hamsterAmountTotal[targetField] == 0) || (appear == 1 && hamsterAmountTotal[targetField] == 0) || (appear == 2 && fieldObject <= 0)){
+                    appear = Random.Range(0,3);
+                    targetField = Random.Range(0,5);
+                    }
+
+                    if(appear==0){
+                        Instantiate(Cat,new Vector3(-3.8f+(targetField*10),2,-5),Quaternion.identity);
+                    }else if(appear==1){
+                        Instantiate(Crow,new Vector3(-3.9f+(targetField*10),2,-5),Quaternion.identity);
+                    }else if(appear==2){
+                        Instantiate(Drone,new Vector3(3.6f+(targetField*10),2,-5),Quaternion.identity);
+                    }
+
+                    hamsterAll = 0;
+                    for(int X=0;X<=4;X++){
+                        hamsterAmountTotal[X] = hamsterAmount[X,0]+hamsterAmount[X,1]+hamsterAmount[X,2];
+                        hamsterAll += hamsterAmountTotal[X];
+                    }
+                    if(hamsterAll<=100){//ハムスターが増えるほど周期が短くなる
+                        encounter = 10;
+                    }else if(hamsterAll<= 500){
+                        encounter = 7;
+                    }else{
+                        encounter = 4;
+                    }
+
+
+                }else if(encounter >= 2){//出現しなかった場合は確率を上げる
+                    encounter -=1;
+                }
+                enemyTime = 0;
+            }
+
+
 
         //画面上のハムスターが総数より少ない場合、補充する
         for(int Y=0;Y<=4;Y++){
@@ -306,8 +361,9 @@ public GameObject sunflowerSeedObject;
         }
 
         
-        breedingTime += 1;
+        breedingTime  += 1;
         stressPerTime += 1;
+        enemyTime     += 1;
         tmpTime = 0f;
         }
         scoreUpdate();

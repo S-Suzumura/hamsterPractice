@@ -21,7 +21,7 @@ public class ShopWindowCall : MonoBehaviour
         Window.name = "shopItemWindow";
         float callAddress = factory.viewingField*10;
         factory.pageNumber = 0;
-        Instantiate(Window,new Vector3(callAddress,-2.59f,-3),Quaternion.identity);
+        Instantiate(Window,new Vector3(callAddress,-2.59f,-12),Quaternion.identity);
         page1();
 
      }

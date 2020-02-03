@@ -35,7 +35,7 @@ public class etcItem : MonoBehaviour
         factory.itemName = "house";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "ハウス\nハムスターが安心して過ごせる小屋です。\n繁殖時のストレスを半減します。";
+        X.text = "ハウス\n安心して過ごせる小屋です。\n繁殖時のストレスを半減します。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　100 Ham";

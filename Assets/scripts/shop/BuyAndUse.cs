@@ -13,6 +13,7 @@ public class BuyAndUse : MonoBehaviour
     public GameObject WaterPot;
     public GameObject Wheel;
     public GameObject House;
+    public GameObject Drone;
     factory script;
 
     public int itemValue = 0;
@@ -68,23 +69,30 @@ public class BuyAndUse : MonoBehaviour
             itemValue = 80;
             Purchase();
             factory.waterPot[factory.viewingField] = 100;
+            WaterPot.name = "Field"+(factory.viewingField+1)+"_waterPot";
             Instantiate(WaterPot,new Vector3(1.1f+factory.viewingField*10,3.2f,-2),Quaternion.identity);
         }else if(factory.itemName=="wheel" && factory.hamsterValue >= 50 && factory.wheel[factory.viewingField] == 0){
             itemValue = 50;
             Purchase();
             factory.wheel[factory.viewingField] = 100;
             factory.fieldStress[factory.viewingField] -= 1;
+            Wheel.name = "Field"+(factory.viewingField+1)+"_wheel";
             Instantiate(Wheel,new Vector3((-0.1f)+factory.viewingField*10,3.2f,-2),Quaternion.identity);
         }else if(factory.itemName=="house" && factory.hamsterValue >= 100 && factory.house[factory.viewingField] == 0){
             itemValue = 100;
             Purchase();
             factory.house[factory.viewingField] = 100;
+            House.name = "Field"+(factory.viewingField+1)+"_house";
             Instantiate(House,new Vector3((-1.5f)+factory.viewingField*10,3.2f,-2),Quaternion.identity);
         }else if(factory.itemName=="feedMachine" && factory.hamsterValue >= 60 && factory.feedMachine[factory.viewingField] == 0){
             itemValue = 60;
             Purchase();
             factory.feedMachine[factory.viewingField] = 100;
+            FeedMachine.name = "Field"+(factory.viewingField+1)+"_feedMachine";
             Instantiate(FeedMachine,new Vector3(2.2f+factory.viewingField*10,3.2f,-2),Quaternion.identity);
+
+            // Drone = (GameObject)Resources.Load("objects/Monster_Drone");
+            // Instantiate(Drone,new Vector3(3.6f+(factory.enemyTarget*10),2,-2),Quaternion.identity);
         }
 
     }

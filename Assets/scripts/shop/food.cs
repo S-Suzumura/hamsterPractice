@@ -24,50 +24,60 @@ public class food : MonoBehaviour
         factory.itemName = "feed";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "固形飼料　100個\n最も一般的な餌です。\n満腹度を50回復し、ストレスを10下げます。";
+        X.text = "飼料　100個\n一般的な餌です。\n満腹度を回復します。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　1 Ham";
         obj = GameObject.Find("Buy");
         X = obj.GetComponent<Text>();
-        X.text = "購入";
+        X.text = "購入して使用";
 
         }else if(number==1){
         factory.itemName = "vegetable";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "レタス　100個\n水分を多く含んだ野菜です。\n満腹度を20、水分を30回復し、ストレスを10下げます。";
+        X.text = "レタス　100個\n水分を多く含んだ野菜です。\n満腹度と水分を少し回復します。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　2 Ham";
         obj = GameObject.Find("Buy");
         X = obj.GetComponent<Text>();
-        X.text = "購入";
+        X.text = "購入して使用";
 
         }else if(number==2){
         factory.itemName = "sunflowerSeed";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "ひまわりの種　100個\nハムスターの大好きなおやつです。\n満腹度を10回復し、ストレスを50下げます。";
+        X.text = "ひまわりの種　100個\nハムスターの大好きなおやつです。\nストレスを大きく下げます。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　4 Ham";
+        obj = GameObject.Find("Buy");
+        X = obj.GetComponent<Text>();
+        X.text = "購入して使用";
+
         }else if(number==3){
         factory.itemName = "waterPot";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "給水器\n現在のフィールドに給水器を設置します。\nハムスターが自動的に水分補給を行います。";
+        X.text = "給水器\n給水器を設置します。\n自動的に水分補給を行います。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　80 Ham";
+        obj = GameObject.Find("Buy");
+        X = obj.GetComponent<Text>();
+        X.text = "購入して使用";
         }else if(number==4){
         factory.itemName = "feedMachine";
         GameObject obj = GameObject.Find("ItemMessage");
         Text X = obj.GetComponent<Text>();
-        X.text = "自動餌精製機\n地中の成分から餌を精製する機械を設置します。\nハムスターが自動的に餌の補給を行います。";
+        X.text = "自動餌精製機\n地中の成分から餌を精製します。\n自動的に餌の補給を行います。";
         obj = GameObject.Find("Price");
         X = obj.GetComponent<Text>();
         X.text = "価格：　60 Ham";
+        obj = GameObject.Find("Buy");
+        X = obj.GetComponent<Text>();
+        X.text = "購入して使用";
         }
     }
 }

@@ -8,12 +8,12 @@ MonoImporter:
   - ghost: {fileID: 7662924793940582124, guid: cf1d8d9c561ab29488f239b50cb144af, type: 3}
   - heart: {fileID: 4589603721956470300, guid: c34e395238d2d2b4bab26a7c5ac9dae9, type: 3}
   - anger: {fileID: 7641375489764578480, guid: 5053f115839908e4f9693c1eab0efbbe, type: 3}
-  - feedObject: {fileID: 8676463321100110778, guid: e599a6ff2532b074abd62b69a01648b9,
-      type: 3}
-  - vegetableObject: {fileID: 9138359979582674007, guid: 5c8019d418104a2489b74cc8e366a2f5,
-      type: 3}
-  - sunflowerSeedObject: {fileID: 3536783416717885520, guid: f0917d78748b02c4e92515357afecac0,
-      type: 3}
+  - feedObject: {instanceID: 0}
+  - vegetableObject: {instanceID: 0}
+  - sunflowerSeedObject: {instanceID: 0}
+  - Cat: {fileID: 1421994544665830240, guid: c5890d61b17dd5241ae9ea656ac0feb1, type: 3}
+  - Crow: {fileID: 5172720407397274071, guid: 8ac138438ec3fc744b6ad1d56d6c3875, type: 3}
+  - Drone: {fileID: 4695223362731359583, guid: c5695516cfb53ff48a535ca0f848837d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
