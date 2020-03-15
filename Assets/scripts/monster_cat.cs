@@ -41,9 +41,9 @@ public class monster_cat : MonoBehaviour
             death = factory.hamsterAmountTotal[factory.targetField];
         }
         for(int X=1;X<=death;X++){
-            int Victim = Random.Range(0,3);//ハムスターの種類を選ぶ
+            int Victim = Random.Range(0,12);//ハムスターの種類を選ぶ
             while(factory.hamsterAmount[factory.targetField,Victim] == 0){
-                Victim = Random.Range(0,3);
+                Victim = Random.Range(0,12);
             }
                 factory.diedHamster += 1;
                 factory.hamsterAmount[factory.targetField,Victim] -= 1;
@@ -52,6 +52,7 @@ public class monster_cat : MonoBehaviour
 
             if(factory.visibleHamster[factory.targetField,Victim] >= 1){
                 string hamsterName = "";
+                //★
                 //ハムスターを一匹消す
                 if(Victim==0){
                     hamsterName = "Field"+(factory.targetField+1)+"_goldenHamster"+(factory.deletedHamster[factory.targetField,Victim]+1)+"(Clone)";

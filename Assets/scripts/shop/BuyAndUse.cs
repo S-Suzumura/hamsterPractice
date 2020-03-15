@@ -14,6 +14,10 @@ public class BuyAndUse : MonoBehaviour
     public GameObject Wheel;
     public GameObject House;
     public GameObject Drone;
+    public GameObject smoke1;
+    public GameObject smoke2;
+    public GameObject smoke3;
+    public GameObject smoke4;
     factory script;
 
     public int itemValue = 0;
@@ -71,28 +75,31 @@ public class BuyAndUse : MonoBehaviour
             factory.waterPot[factory.viewingField] = 100;
             WaterPot.name = "Field"+(factory.viewingField+1)+"_waterPot";
             Instantiate(WaterPot,new Vector3(1.1f+factory.viewingField*10,3.2f,-2),Quaternion.identity);
+
+            ItemEffect(1.1f,3.0f);
         }else if(factory.itemName=="wheel" && factory.hamsterValue >= 50 && factory.wheel[factory.viewingField] == 0){
             itemValue = 50;
             Purchase();
             factory.wheel[factory.viewingField] = 100;
-            factory.fieldStress[factory.viewingField] -= 1;
             Wheel.name = "Field"+(factory.viewingField+1)+"_wheel";
             Instantiate(Wheel,new Vector3((-0.1f)+factory.viewingField*10,3.2f,-2),Quaternion.identity);
+
+            ItemEffect(-0.1f,3.0f);
         }else if(factory.itemName=="house" && factory.hamsterValue >= 100 && factory.house[factory.viewingField] == 0){
             itemValue = 100;
             Purchase();
             factory.house[factory.viewingField] = 100;
             House.name = "Field"+(factory.viewingField+1)+"_house";
             Instantiate(House,new Vector3((-1.5f)+factory.viewingField*10,3.2f,-2),Quaternion.identity);
+
+            ItemEffect(-1.5f,3.0f);
         }else if(factory.itemName=="feedMachine" && factory.hamsterValue >= 60 && factory.feedMachine[factory.viewingField] == 0){
             itemValue = 60;
             Purchase();
             factory.feedMachine[factory.viewingField] = 100;
             FeedMachine.name = "Field"+(factory.viewingField+1)+"_feedMachine";
             Instantiate(FeedMachine,new Vector3(2.2f+factory.viewingField*10,3.2f,-2),Quaternion.identity);
-
-            // Drone = (GameObject)Resources.Load("objects/Monster_Drone");
-            // Instantiate(Drone,new Vector3(3.6f+(factory.enemyTarget*10),2,-2),Quaternion.identity);
+            ItemEffect(2.2f,3.0f);
         }
 
     }
@@ -107,7 +114,7 @@ public class BuyAndUse : MonoBehaviour
             int fieldNumber = 0;
             string hamsterName = "";
 
-            for(int X=0; X<=2;X++){
+            for(int X=0; X<=11;X++){
                 for(int Y=0;Y<=4;Y++){
                     if(maximum<factory.hamsterAmount[Y,X]){
                         maximum = factory.hamsterAmount[Y,X];
@@ -127,6 +134,7 @@ public class BuyAndUse : MonoBehaviour
             factory.visibleHamsterTotal[fieldNumber] = factory.visibleHamster[fieldNumber,0]+factory.visibleHamster[fieldNumber,1]+factory.visibleHamster[fieldNumber,2];
             
             if(factory.visibleHamsterTotal[fieldNumber] >= 1){
+                //★
                 if(maximumHamster==0){
                 hamsterName = "Field"+(fieldNumber+1)+"_goldenHamster"+(factory.deletedHamster[fieldNumber,maximumHamster]+1)+"(Clone)";
                 }else if(maximumHamster==1){
@@ -150,6 +158,7 @@ public class BuyAndUse : MonoBehaviour
 
 
     public void hamsterAdd(int number){
+        //★
         if(number==0){//ゴールデン
             if(factory.visibleHamster[factory.viewingField,number]<factory.hamsterLimit){
             factory.instantiateHamster[factory.viewingField,number] += 1;
@@ -204,6 +213,37 @@ public class BuyAndUse : MonoBehaviour
 
 
     }
+
+
+    public void ItemEffect(float X,float Y){
+        smoke1.name = "smoke1";
+        Instantiate(smoke1,new Vector3(X+factory.viewingField*10,Y,-3),Quaternion.identity);
+        smoke1 = GameObject.Find("smoke1(Clone)");
+        smoke1.GetComponent<Rigidbody2D>().velocity = new Vector2(1,0);
+
+        smoke2.name = "smoke2";
+        Instantiate(smoke2,new Vector3(X+factory.viewingField*10,Y,-3),Quaternion.identity);
+        smoke2 = GameObject.Find("smoke2(Clone)");
+        smoke2.GetComponent<Rigidbody2D>().velocity = new Vector2(-1,0);
+
+        smoke3.name = "smoke3";
+        Instantiate(smoke3,new Vector3(X+factory.viewingField*10,Y,-4),Quaternion.identity);
+        smoke3 = GameObject.Find("smoke3(Clone)");
+        smoke3.GetComponent<Rigidbody2D>().velocity = new Vector2(1,0.5f);
+
+        smoke4.name = "smoke4";
+        Instantiate(smoke4,new Vector3(X+factory.viewingField*10,Y,-4),Quaternion.identity);
+        smoke4 = GameObject.Find("smoke4(Clone)");
+        smoke4.GetComponent<Rigidbody2D>().velocity = new Vector2(-1,0.5f);
+    }
+
+
+
+
+
+
+
+
 
 
 

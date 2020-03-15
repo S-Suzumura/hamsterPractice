@@ -12,7 +12,7 @@ public class monster_drone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        factory.enemyStay = true;
+        factory.machineStay = true;
         Life = 20;
         StartCoroutine("DroneMove");
     }
@@ -36,60 +36,60 @@ public class monster_drone : MonoBehaviour
         yield return new WaitForSeconds(2);
         //攻撃
 
-        while(factory.feedMachine[factory.targetField] >= 1){
-            GameObject target = GameObject.Find("Field"+(factory.targetField+1)+"_feedMachine(Clone)");
+        while(factory.feedMachine[factory.machineTargetField] >= 1){
+            GameObject target = GameObject.Find("Field"+(factory.machineTargetField+1)+"_feedMachine(Clone)");
             Vector3 effectAddress = target.transform.position;
             float temp = Random.Range(-0.5f,0.5f);
             float temp2 = Random.Range(-0.5f,0.5f);
             Instantiate(Bomb,new Vector3(effectAddress.x+temp,effectAddress.y+temp2,-5),Quaternion.identity);
-            factory.feedMachine[factory.targetField] -= 2;
+            factory.feedMachine[factory.machineTargetField] -= 2;
 
-            if(factory.feedMachine[factory.targetField] <= 0){
+            if(factory.feedMachine[factory.machineTargetField] <= 0){
                 Destroy(target);
             }
 
             yield return new WaitForSeconds(0.5f);
         }
 
-        while(factory.waterPot[factory.targetField] >= 1){
-            GameObject target = GameObject.Find("Field"+(factory.targetField+1)+"_waterPot(Clone)");
+        while(factory.waterPot[factory.machineTargetField] >= 1){
+            GameObject target = GameObject.Find("Field"+(factory.machineTargetField+1)+"_waterPot(Clone)");
             Vector3 effectAddress = target.transform.position;
             float temp = Random.Range(-0.5f,0.5f);
             float temp2 = Random.Range(-0.5f,0.5f);
             Instantiate(Bomb,new Vector3(effectAddress.x+temp,effectAddress.y+temp2,-5),Quaternion.identity);
-            factory.waterPot[factory.targetField] -= 2;
+            factory.waterPot[factory.machineTargetField] -= 2;
 
-            if(factory.waterPot[factory.targetField] <= 0){
+            if(factory.waterPot[factory.machineTargetField] <= 0){
                 Destroy(target);
             }
 
             yield return new WaitForSeconds(0.5f);
         }
 
-        while(factory.wheel[factory.targetField] >= 1){
-            GameObject target = GameObject.Find("Field"+(factory.targetField+1)+"_wheel(Clone)");
+        while(factory.wheel[factory.machineTargetField] >= 1){
+            GameObject target = GameObject.Find("Field"+(factory.machineTargetField+1)+"_wheel(Clone)");
             Vector3 effectAddress = target.transform.position;
             float temp = Random.Range(-0.5f,0.5f);
             float temp2 = Random.Range(-0.5f,0.5f);
             Instantiate(Bomb,new Vector3(effectAddress.x+temp,effectAddress.y+temp2,-5),Quaternion.identity);
-            factory.wheel[factory.targetField] -= 2;
+            factory.wheel[factory.machineTargetField] -= 2;
 
-            if(factory.wheel[factory.targetField] <= 0){
+            if(factory.wheel[factory.machineTargetField] <= 0){
                 Destroy(target);
             }
 
             yield return new WaitForSeconds(0.5f);
         }
 
-        while(factory.house[factory.targetField] >= 1){
-            GameObject target = GameObject.Find("Field"+(factory.targetField+1)+"_house(Clone)");
+        while(factory.house[factory.machineTargetField] >= 1){
+            GameObject target = GameObject.Find("Field"+(factory.machineTargetField+1)+"_house(Clone)");
             Vector3 effectAddress = target.transform.position;
             float temp = Random.Range(-0.5f,0.5f);
             float temp2 = Random.Range(-0.5f,0.5f);
             Instantiate(Bomb,new Vector3(effectAddress.x+temp,effectAddress.y+temp2,-5),Quaternion.identity);
-            factory.house[factory.targetField] -= 2;
+            factory.house[factory.machineTargetField] -= 2;
 
-            if(factory.house[factory.targetField] <= 0){
+            if(factory.house[factory.machineTargetField] <= 0){
                 Destroy(target);
             }
 
@@ -102,7 +102,7 @@ public class monster_drone : MonoBehaviour
         moveSpeed = 1f;
         rb.velocity = new Vector2(moveSpeed,0);
         yield return new WaitForSeconds(2);
-        factory.enemyStay = false;
+        factory.machineStay = false;
         Destroy(this.gameObject);
 
 
@@ -117,7 +117,7 @@ public class monster_drone : MonoBehaviour
         Instantiate(Bomb,new Vector3(effectAddress.x+temp,effectAddress.y+temp2,-7),Quaternion.identity);
         Life -= 1;
         if(Life<=0){
-        factory.enemyStay = false;
+        factory.machineStay = false;
         Destroy(this.gameObject);
         StopCoroutine("DroneMove");
         }
